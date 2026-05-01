@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from .passwords import hash_password
 from .models import Users
 from django.contrib.auth import authenticate
 
@@ -17,13 +19,11 @@ class RegisterSerializer(serializers.ModelSerializer):
         ]
         read_only_fields=["id"]
     def create(self, validated_data):
-        password=validated_data.pop('password')
-        user=Users(**validated_data)
-
-        # user.set_password(password)
-
-        user.save()
-        return user
+         validated_data['password'] = hash_password(
+            validated_data['password']
+        )
+         return Users.objects.create(**validated_data)
+        
     
 class LoginSerializer(serializers.Serializer):
 

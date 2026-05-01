@@ -13,4 +13,5 @@ class Users(models.Model):
     email=models.TextField(max_length=80,default='abc@gmail.com')
     role=models.CharField(max_length=10,choices=Role,default=Role.USER)
     address=models.TextField(blank=True,null=True)
-    
+
+

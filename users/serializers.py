@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .passwords import hash_password
-from .models import Users
+from .models import Users, Product
 from django.contrib.auth import authenticate
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -55,3 +55,8 @@ class UserSerializer(serializers.ModelSerializer):
             'role',
             'address'
         ]
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Product
+        fields="__all__"

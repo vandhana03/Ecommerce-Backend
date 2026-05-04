@@ -26,9 +26,7 @@ def get_logged_in_user(request):
 
     if not token:
         return None
-
     try:
-
         token = token.split(' ')[1]
 
         payload = jwt.decode(

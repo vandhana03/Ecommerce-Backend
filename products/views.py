@@ -7,7 +7,7 @@ from django.forms.models import model_to_dict
 from django.views import View
 from django.http import JsonResponse
 import jwt
-from .models import Users,Product
+from users.models import Product
 from .serializers import ProductSerializer
 from django.conf import settings
 SECRET_KEY=settings.SECRET_KEY

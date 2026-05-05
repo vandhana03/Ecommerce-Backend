@@ -9,7 +9,7 @@ import jwt
 from django.conf import settings
 SECRET_KEY=settings.SECRET_KEY
 
-from .models import Users,Product
+from .models import Users
 from .serializers import RegisterSerializer, ProductSerializer
 from django.views import View
 from django.utils.decorators import method_decorator
